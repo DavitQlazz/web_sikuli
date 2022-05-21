@@ -2,12 +2,7 @@ package tests;
 
 import base.SikuliFinder;
 import base.TestBase;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class TestCasino extends TestBase {
 
@@ -15,13 +10,13 @@ public class TestCasino extends TestBase {
 
   @Test
   public void testName() {
-    sikuli = new SikuliFinder(driver);
-    driver.get("https://google.com/ncr");
+    sikuli = new SikuliFinder(driver.get());
+    driver.get().get("https://google.com/ncr");
+    slp();
     sikuli.findElement("more").click();
     slp();
+    slp();
     sikuli.clickOnImage("gmail");
-    slp();
-    slp();
     slp();
     slp();
   }

@@ -9,24 +9,28 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 public class TestBase {
+  protected static final ThreadLocal<WebDriver> driver =
+      ThreadLocal.withInitial(TestBase::createDriver);
 
-  protected WebDriver driver;
+  private static WebDriver createDriver() {
+    ChromeOptions chromeOptions = new ChromeOptions();
+    chromeOptions.setHeadless(false);
+    return new ChromeDriver(chromeOptions);
+  }
+
+  @BeforeMethod
+  public void setUp() {
+    driver.get().manage().window().maximize();
+  }
 
   @BeforeSuite
   public void beforeSuite() {
     WebDriverManager.chromedriver().setup();
   }
 
-  @BeforeMethod
-  public void setUp() {
-    ChromeOptions chromeOptions = new ChromeOptions();
-    chromeOptions.setHeadless(false);
-    driver = new ChromeDriver(chromeOptions);
-    driver.manage().window().maximize();
-  }
-
   @AfterMethod(alwaysRun = true)
   public void tearDown() {
-    driver.quit();
+    driver.get().quit();
+    driver.remove();
   }
 }

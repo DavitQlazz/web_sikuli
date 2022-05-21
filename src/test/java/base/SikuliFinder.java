@@ -62,8 +62,7 @@ public class SikuliFinder {
   /**
    * Find the nearest WebElement to the image
    *
-   * @param p
-   * @return
+   * @return WebElement
    */
   private WebElement nearestPoint(Point p) {
     Map<Point, WebElement> all = new HashMap<>();

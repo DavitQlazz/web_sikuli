@@ -1,10 +1,10 @@
 package tests;
 
-import base.SikuliFinder;
+import utils.SikuliFinder;
 import base.TestBase;
 import org.testng.annotations.Test;
 
-public class TestCasino extends TestBase {
+public class GoogleTest extends TestBase {
 
   SikuliFinder sikuli;
 

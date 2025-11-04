@@ -33,4 +33,12 @@ public class TestBase {
     driver.get().quit();
     driver.remove();
   }
+
+  protected void sleep(int milliseconds) {
+    try {
+      Thread.sleep(milliseconds);
+    } catch (InterruptedException e) {
+      throw new RuntimeException(e);
+    }
+  }
 }

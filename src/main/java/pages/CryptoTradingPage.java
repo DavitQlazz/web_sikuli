@@ -37,7 +37,7 @@ public class CryptoTradingPage extends BasePage {
         return this;
     }
 
-    public CryptoTradingPage enterBuyAmount(String amount) {
+    public CryptoTradingPage enterAmount(String amount) {
         WebElement amountField = wait.until(visibilityOfElementLocated(amountInput));
         amountField.clear();
         amountField.sendKeys(amount);
@@ -115,7 +115,7 @@ public class CryptoTradingPage extends BasePage {
 
     public CryptoTradingPage placeLimitBuyOrder(String amount, String price) {
         selectLimitOrder();
-        enterBuyAmount(amount);
+        enterAmount(amount);
         enterPrice(price);
         clickBuyButton();
         return this;
@@ -123,7 +123,7 @@ public class CryptoTradingPage extends BasePage {
 
     public CryptoTradingPage placeLimitSellOrder(String amount, String price) {
         selectLimitOrder();
-        enterBuyAmount(amount);
+        enterAmount(amount);
         enterPrice(price);
         clickSellButton();
         return this;
@@ -131,14 +131,14 @@ public class CryptoTradingPage extends BasePage {
 
     public CryptoTradingPage placeMarketBuyOrder(String amount) {
         selectMarketOrder();
-        enterBuyAmount(amount);
+        enterAmount(amount);
         clickBuyButton();
         return this;
     }
 
     public CryptoTradingPage placeMarketSellOrder(String amount) {
         selectMarketOrder();
-        enterBuyAmount(amount);
+        enterAmount(amount);
         clickSellButton();
         return this;
     }

@@ -172,14 +172,4 @@ public class CryptoTradingTest extends TestBase {
         }
     }
 
-    /**
-     * Helper method to pause execution
-     */
-    private void sleep(int milliseconds) {
-        try {
-            Thread.sleep(milliseconds);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }
